@@ -1,5 +1,9 @@
 exports.up = function(knex) {
-return knex.schema.createTable('siswa', function(table) {
+
+
+
+    return knex.schema.createTableIfNotExists('siswa', function(table) {
+
         table.string('kode_kelas').nullable()
         table.uuid('id').primary()
         table.string('nama').nullable()

@@ -1,5 +1,7 @@
 exports.up = function(knex) {
-return knex.schema.createTable('kelas', function(table) {
+
+    return knex.schema.createTableIfNotExists('kelas', function(table) {
+
         table.string('kode_kelas').primary()
         table.string('nama_kelas').notNullable()
         table.timestamps(true, true)

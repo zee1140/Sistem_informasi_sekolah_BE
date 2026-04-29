@@ -3,17 +3,18 @@ const app = express()
 
 app.use(express.json())
 
-// ROUTER
 const authRoutes = require('./routes/auth.routes')
+const userRoutes = require('./routes/user.routes')
+const siswaRoutes = require('./routes/siswa.routes')
+const kelasRoutes = require('./routes/kelas.routes')
 
-// PREFIX
 app.use('/auth', authRoutes)
+app.use('/users', userRoutes)
+app.use('/siswa', siswaRoutes)
+app.use('/kelas', kelasRoutes)
 
 app.get('/', (req, res) => {
   res.send('Hello Express')
 })
-
-const userRoutes = require('./routes/user.routes')
-app.use('/users', userRoutes)
 
 module.exports = app

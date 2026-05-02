@@ -27,3 +27,4 @@ module.exports = (req, res, next) => {
         next(new AppError('INVALID_TOKEN', 401))
     }
 }
+

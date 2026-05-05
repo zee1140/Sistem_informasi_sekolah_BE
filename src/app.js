@@ -21,7 +21,7 @@ app.use('/users', userRoutes)
 app.use('/siswa', siswaRoutes)
 app.use('/kelas', kelasRoutes)
 app.use('/guru', guruRoutes)
-app.use('/mata_pelajaran', mapelRoutes)
+app.use('/mapel', mapelRoutes)
 
 app.get('/', (req, res) => {
   res.send('Hello Express')

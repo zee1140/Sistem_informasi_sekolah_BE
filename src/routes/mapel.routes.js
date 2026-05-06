@@ -1,11 +1,13 @@
 const express = require('express')
 const router = express.Router()
-const mapelController = require('../controllers/mapel.controller')
 
-router.get('/', mapelController.getAll)
-router.get('/:id', mapelController.getById)
-router.post('/', mapelController.create)
-router.put('/:id', mapelController.update)
-router.delete('/:id', mapelController.remove)
+const { auth } = require('../middlewares/auth.middleware') // ✅ BENAR
+const mapelController = require('../controllers/mapel.controller') // ✅ WAJIB
+
+router.get('/', auth, mapelController.getAll)
+router.get('/:id', auth, mapelController.getById)
+router.post('/', auth, mapelController.create)
+router.put('/:id', auth, mapelController.update)
+router.delete('/:id', auth, mapelController.remove)
 
 module.exports = router

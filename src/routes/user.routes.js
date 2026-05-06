@@ -1,12 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
+const { auth } = require('../middlewares/auth.middleware') // ✅ FIX
 const userController = require('../controllers/user.controller')
-const authMiddleware = require('../middlewares/auth.middleware')
 
-router.get('/', authMiddleware, userController.getAll)
-router.get('/:id', authMiddleware, userController.getById)
-router.delete('/:id', authMiddleware, userController.delete)
-
+router.get('/', auth, userController.getAll)
+router.get('/:id', auth, userController.getById)
+router.delete('/:id', auth, userController.delete)
 
 module.exports = router

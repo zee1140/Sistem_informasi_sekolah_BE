@@ -15,6 +15,7 @@ const siswaRoutes = require('./routes/siswa.routes')
 const kelasRoutes = require('./routes/kelas.routes')
 const guruRoutes = require('./routes/guru.routes')
 const mapelRoutes = require('./routes/mapel.routes')
+const absensiRoutes = require('./routes/absensi.routes') // 🔥 tambah ini
 
 app.use('/auth', authRoutes)
 app.use('/users', userRoutes)
@@ -22,6 +23,7 @@ app.use('/siswa', siswaRoutes)
 app.use('/kelas', kelasRoutes)
 app.use('/guru', guruRoutes)
 app.use('/mapel', mapelRoutes)
+app.use('/absensi', absensiRoutes) // 🔥 tambah ini
 
 app.get('/', (req, res) => {
   res.send('Hello Express')

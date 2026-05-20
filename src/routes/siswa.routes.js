@@ -5,7 +5,9 @@ const { auth } = require('../middlewares/auth.middleware')
 const siswaController = require('../controllers/siswa.controller')
 
 router.get('/', auth, siswaController.getAll)
-router.get('/detail/:id', auth, siswaController.getById)
+router.get('/:id', auth, siswaController.getById)
 router.post('/', auth, siswaController.create)
+router.put('/:id', auth, siswaController.update)
+router.delete('/:id', auth, siswaController.delete)
 
 module.exports = router

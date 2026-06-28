@@ -19,14 +19,8 @@ exports.getById = async (id) => {
 
 // CREATE
 exports.create = async (data) => {
-  const {
-    id,
-    siswa_id,
-    tanggal,
-    status
-  } = data
-
-  if (!id || !siswa_id || !tanggal || !status) {
+  const { siswa_id, tanggal, status  } = data
+  if ( !siswa_id || !tanggal || !status) {
     throw new AppError('INVALID_PAYLOAD', 400)
   }
 
@@ -53,4 +47,8 @@ exports.delete = async (id) => {
   }
 
   await absensiModel.delete(id)
+}
+
+exports.rekapNilai = async () => {
+  return await absensiModel.rekapNilai()
 }

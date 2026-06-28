@@ -3,6 +3,7 @@ const pool = require('../config/db')
 // GET semua mapel
 exports.getAll = async (req, res) => {
   const [rows] = await pool.query('SELECT * FROM mata_pelajaran')
+  console.log('DATA:',rows)
   res.json(rows)
 }
 

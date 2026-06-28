@@ -23,13 +23,17 @@ exports.create = async (req, res) => {
 
 // PUT update guru
 exports.update = async (req, res) => {
+  console.log("===== UPDATE =====")
+  console.log("ID:", req.params.id)
+  console.log("BODY:", req.body)
+
   await pool.query(
     'UPDATE guru SET ? WHERE id_guru = ?',
     [req.body, req.params.id]
   )
+
   res.json({ message: 'Guru berhasil diupdate' })
 }
-
 // DELETE guru
 exports.remove = async (req, res) => {
   await pool.query(

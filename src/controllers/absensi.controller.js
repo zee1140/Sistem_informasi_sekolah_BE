@@ -39,3 +39,8 @@ exports.delete = asyncHandler(async (req, res) => {
     message: 'Absensi deleted'
   })
 })
+
+exports.rekapNilai = asyncHandler(async (req, res) => {
+  const data = await absensiService.rekapNilai()
+  res.json(data)
+})

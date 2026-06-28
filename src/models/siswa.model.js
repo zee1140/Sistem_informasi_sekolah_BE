@@ -77,3 +77,12 @@ exports.findByKelas = async (kodeKelas) => {
 
   return rows
 }
+
+exports.findByKelas = async (kelas) => {
+  const [rows] = await db.query(
+    'SELECT * FROM siswa WHERE kode_kelas = ?',
+    [kelas]
+  )
+
+  return rows
+}

@@ -91,3 +91,21 @@ exports.delete = async (req, res) => {
     })
   }
 }
+
+exports.getByKelas = async (req, res) => {
+  try {
+    const data = await siswaModel.findByKelas(req.params.kelas)
+
+    if (!data.length) {
+      return res.status(404).json({
+        message: 'Siswa not found'
+      })
+    }
+
+    res.json(data)
+  } catch (err) {
+    res.status(500).json({
+      message: err.message
+    })
+  }
+}

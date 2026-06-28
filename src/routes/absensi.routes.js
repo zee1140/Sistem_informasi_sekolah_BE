@@ -5,6 +5,7 @@ const absensiController = require('../controllers/absensi.controller')
 const { auth } = require('../middlewares/auth.middleware')
 
 router.get('/', auth, absensiController.getAll)
+router.get('/rekap-nilai', auth, absensiController.rekapNilai)
 router.get('/:id', auth, absensiController.getById)
 router.post('/', auth, absensiController.create)
 router.put('/:id', auth, absensiController.update)

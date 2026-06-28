@@ -62,3 +62,7 @@ exports.delete = async (id) => {
 exports.getByKelas = async (kodeKelas) => {
   return await siswaModel.findByKelas(kodeKelas)
 }
+
+exports.getByKelas = async (kelas) => {
+  return await siswaModel.findByKelas(kelas)
+}

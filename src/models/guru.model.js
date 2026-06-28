@@ -17,20 +17,20 @@ exports.findById = async (id) => {
 
 // tambah guru
 exports.create = async (data) => {
-  const { nip, nama_guru, jenis_kelamin, tanggal_lahir, alamat, no_hp, mata_pelajaran } = data
+  const { nip, nama_guru, mata_pelajaran } = data
 
   await pool.query(
-    `INSERT INTO guru 
-    (nip, nama_guru, jenis_kelamin, tanggal_lahir, alamat, no_hp, mata_pelajaran)
-    VALUES (?, ?, ?, ?, ?, ?, ?)`,
-    [nip, nama_guru, jenis_kelamin, tanggal_lahir, alamat, no_hp, mata_pelajaran]
+    `INSERT INTO guru
+    (nip, nama_guru, mata_pelajaran)
+    VALUES (?, ?, ?)`,
+    [nip, nama_guru, mata_pelajaran]
   )
 }
 
 // update guru
 exports.updateById = async (id, data) => {
   await pool.query(
-    `UPDATE guru SET ? WHERE id_guru = ?`,
+    'UPDATE guru SET ? WHERE id_guru = ?',
     [data, id]
   )
 }

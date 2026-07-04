@@ -1,95 +1,81 @@
-const nilaiModel = require('../models/nilai.model')
+const nilaiService = require('../services/nilai.service')
 
-// GET
-exports.getAll = async (req,res)=>{
-  try{
-    const data = await nilaiModel.findAll()
+// GET ALL
+exports.getAll = async (req, res) => {
+  try {
+    const data = await nilaiService.getAllNilai()
     res.json(data)
-  }catch(err){
-    res.status(500).json({
-      message:err.message
+  } catch (err) {
+    res.status(err.statusCode || 500).json({
+      message: err.message
     })
   }
 }
 
 // GET BY ID
-exports.getById = async(req,res)=>{
-  try{
-
-    const data = await nilaiModel.findById(req.params.id)
-
-    if(!data){
-      return res.status(404).json({
-        message:'Nilai not found'
-      })
-    }
-
+exports.getById = async (req, res) => {
+  try {
+    const data = await nilaiService.getNilaiById(req.params.id)
     res.json(data)
-
-  }catch(err){
-    res.status(500).json({
-      message:err.message
+  } catch (err) {
+    res.status(err.statusCode || 500).json({
+      message: err.message
     })
   }
 }
 
 // CREATE
-exports.create = async(req,res)=>{
-  try{
-
-    await nilaiModel.create(req.body)
+exports.create = async (req, res) => {
+  try {
+    await nilaiService.createNilai(req.body)
 
     res.status(201).json({
-      message:'Nilai created'
+      message: 'Nilai created'
     })
-
-  }catch(err){
-    res.status(500).json({
-      message:err.message
+  } catch (err) {
+    res.status(err.statusCode || 500).json({
+      message: err.message
     })
   }
 }
 
 // UPDATE
-exports.update = async(req,res)=>{
-  try{
-
-    await nilaiModel.update(req.params.id,req.body)
+exports.update = async (req, res) => {
+  try {
+    await nilaiService.updateNilai(req.params.id, req.body)
 
     res.json({
-      message:'Nilai updated'
+      message: 'Nilai updated'
     })
-
-  }catch(err){
-    res.status(500).json({
-      message:err.message
+  } catch (err) {
+    res.status(err.statusCode || 500).json({
+      message: err.message
     })
   }
 }
 
 // DELETE
-exports.delete = async(req,res)=>{
-  try{
-
-    await nilaiModel.delete(req.params.id)
+exports.delete = async (req, res) => {
+  try {
+    await nilaiService.deleteNilai(req.params.id)
 
     res.json({
-      message:'Nilai deleted'
+      message: 'Nilai deleted'
     })
-
-  }catch(err){
-    res.status(500).json({
-      message:err.message
+  } catch (err) {
+    res.status(err.statusCode || 500).json({
+      message: err.message
     })
   }
 }
 
+// REKAP
 exports.rekap = async (req, res) => {
   try {
-    const data = await nilaiModel.rekap()
+    const data = await nilaiService.getRekapNilai()
     res.json(data)
   } catch (err) {
-    res.status(500).json({
+    res.status(err.statusCode || 500).json({
       message: err.message
     })
   }

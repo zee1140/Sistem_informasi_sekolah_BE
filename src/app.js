@@ -27,6 +27,7 @@ app.use('/mapel', mapelRoutes)
 app.use('/absensi', absensiRoutes)
 app.use('/nilai', nilaiRoutes)
 
+
 app.get('/', (req, res) => {
   res.send('Hello Express')
 })

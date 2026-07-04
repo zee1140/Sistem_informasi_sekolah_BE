@@ -38,5 +38,4 @@ app.use((err, req, res, next) => {
     message: err.message || 'INTERNAL_SERVER_ERROR'
   })
 })
-
 module.exports = app

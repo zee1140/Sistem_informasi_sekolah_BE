@@ -44,7 +44,7 @@ exports.create = async (data) => {
   )
 }
 
-exports.update = async (id,data)=>{
+exports.updateById = async (id,data)=>{
   await pool.query(
     `UPDATE nilai
      SET tugas=?,
@@ -62,7 +62,7 @@ exports.update = async (id,data)=>{
   )
 }
 
-exports.delete = async(id)=>{
+exports.deleteById = async(id)=>{
   await pool.query(
     `DELETE FROM nilai WHERE id=?`,
     [id]
